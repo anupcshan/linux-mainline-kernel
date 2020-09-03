@@ -23,7 +23,6 @@ obj-$(CONFIG_TRUSTED_FOUNDATIONS) += trusted_foundations.o
 obj-$(CONFIG_TURRIS_MOX_RWTM)	+= turris-mox-rwtm.o
 
 obj-$(CONFIG_ARM_SCMI_PROTOCOL)	+= arm_scmi/
-obj-y				+= psci/
 obj-y				+= broadcom/
 obj-y				+= meson/
 obj-$(CONFIG_GOOGLE_FIRMWARE)	+= google/
@@ -31,5 +30,7 @@ obj-$(CONFIG_EFI)		+= efi/
 obj-$(CONFIG_UEFI_CPER)		+= efi/
 obj-$(CONFIG_ROCKCHIP_SIP)	+= rockchip_sip.o
 obj-y				+= imx/
+obj-y				+= psci/
+obj-y				+= smccc/
 obj-y				+= tegra/
 obj-y				+= xilinx/

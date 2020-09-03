@@ -93,7 +93,7 @@ static int cw_read_word(struct cw_battery *cw_bat, u8 reg, u16 *val)
 	return 0;
 }
 
-int cw_update_profile(struct cw_battery *cw_bat)
+static int cw_update_profile(struct cw_battery *cw_bat)
 {
 	int ret;
 	unsigned int reg_val;
@@ -709,7 +709,7 @@ static int __maybe_unused cw_bat_resume(struct device *dev)
 	return 0;
 }
 
-SIMPLE_DEV_PM_OPS(cw_bat_pm_ops, cw_bat_suspend, cw_bat_resume);
+static SIMPLE_DEV_PM_OPS(cw_bat_pm_ops, cw_bat_suspend, cw_bat_resume);
 
 static int cw_bat_remove(struct i2c_client *client)
 {
@@ -734,6 +734,7 @@ MODULE_DEVICE_TABLE(of, cw2015_of_match);
 static struct i2c_driver cw_bat_driver = {
 	.driver = {
 		.name = "cw2015",
+		.of_match_table = cw2015_of_match,
 		.pm = &cw_bat_pm_ops,
 	},
 	.probe_new = cw_bat_probe,
